@@ -21,17 +21,13 @@ npm run preview  # serve production build locally
 
 ## Project layout (convention)
 
-Folders under `src/` are introduced **when there is real code**—no empty placeholders:
-
 | Path | Purpose |
 |------|---------|
-| `src/components/` | Reusable UI pieces (template includes `HelloWorld.vue` as a starter). |
-| `src/composables/` | Composition API hooks (`use*.ts`) when added. |
-| `src/views/` | Route-level pages when Vue Router is added. |
-| `src/router/` | Router config when added. |
-| `src/store/` | Optional client state (Pinia only if we need cross-route UI state). |
+| `src/components/` | Reusable UI pieces |
+| `src/composables/` | Composition API hooks (`use*.ts`) |
+| `src/views/` | Route-level pages |
+| `src/router/` | Router config |
 
-Server/async data is intended to live primarily in **TanStack Query** rather than a global store; see the phased plan for details.
 
 ## References
 
