@@ -19,7 +19,7 @@ npm run build    # typecheck + production build
 npm run preview  # serve production build locally
 ```
 
-## Project layout (convention)
+## Project layout
 
 | Path | Purpose |
 |------|---------|
