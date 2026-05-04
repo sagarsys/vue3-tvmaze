@@ -19,6 +19,15 @@ npm run build    # typecheck + production build
 npm run preview  # serve production build locally
 ```
 
+## Linting & formatting
+
+```bash
+npm run lint          # run ESLint checks
+npm run lint:fix      # auto-fix lint issues
+npm run format:check  # verify Prettier formatting
+npm run format        # apply Prettier formatting
+```
+
 ## Project layout
 
 | Path | Purpose |
