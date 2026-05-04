@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterLink, RouterView } from 'vue-router';
 
-const navLinkClass = 'font-semibold no-underline hover:underline [&.router-link-active]:text-[var(--accent)]'
+const navLinkClass =
+  'font-semibold no-underline hover:underline [&.router-link-active]:text-[var(--accent)]';
 </script>
 
 <template>
@@ -18,4 +19,3 @@ const navLinkClass = 'font-semibold no-underline hover:underline [&.router-link-
     </main>
   </div>
 </template>
-

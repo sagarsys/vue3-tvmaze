@@ -1,7 +1,7 @@
 # Vue 3 TVMaze
 
 TVMaze is a TV show app, like Netflix, using Vue 3 and Typescript.
-You can browse shows by genre (from the [TVMaze API](https://www.tvmaze.com/api)), view show details, and search a show by name. 
+You can browse shows by genre (from the [TVMaze API](https://www.tvmaze.com/api)), view show details, and search a show by name.
 
 Built with **Vue 3**, **Vite**, **TypeScript**
 
@@ -30,13 +30,12 @@ npm run format        # apply Prettier formatting
 
 ## Project layout
 
-| Path | Purpose |
-|------|---------|
-| `src/components/` | Reusable UI pieces |
+| Path               | Purpose                           |
+| ------------------ | --------------------------------- |
+| `src/components/`  | Reusable UI pieces                |
 | `src/composables/` | Composition API hooks (`use*.ts`) |
-| `src/views/` | Route-level pages |
-| `src/router/` | Router config |
-
+| `src/views/`       | Route-level pages                 |
+| `src/router/`      | Router config                     |
 
 ## References
 
