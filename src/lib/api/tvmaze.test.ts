@@ -7,6 +7,9 @@ import {
   searchShowsByName,
 } from '@/lib/api/tvmaze.ts';
 
+/**
+ * Test boundary: This file validates the API layer contract (URL building, encoding, error handling)
+ */
 describe('tvmaze api module', () => {
   const fetchMock = vi.fn<typeof fetch>();
 
