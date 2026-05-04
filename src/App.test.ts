@@ -1,8 +1,10 @@
 import { describe, expect, it } from 'vitest';
 import { mount } from '@vue/test-utils';
+import { VueQueryPlugin } from '@tanstack/vue-query';
 
 import { router } from '@/router';
 import App from '@/App.vue';
+import { queryClient } from '@/lib/query-client.ts';
 
 describe('App smoke test', () => {
   it('renders router navigation links', async () => {
@@ -11,7 +13,7 @@ describe('App smoke test', () => {
 
     const wrapper = mount(App, {
       global: {
-        plugins: [router],
+        plugins: [router, [VueQueryPlugin, { queryClient }]],
       },
     });
 
