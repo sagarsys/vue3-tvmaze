@@ -14,9 +14,7 @@ export const DASHBOARD_GENRES = [
   'Sports',
   'Fantasy',
   'Mystery',
-  'Documentary',
   'Family',
-  'Animation',
 ] as const;
 
 export type DashboardGenre = (typeof DASHBOARD_GENRES)[number];
