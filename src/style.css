@@ -48,3 +48,10 @@ body {
     @apply rounded bg-[--code-bg] px-1.5 py-0.5 font-mono text-sm text-[--text-h];
   }
 }
+
+@layer components {
+  /* Keyboard-only focus ring using theme accent (reuse on links/buttons). */
+  .focus-ring-accent {
+    @apply focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--accent);
+  }
+}
