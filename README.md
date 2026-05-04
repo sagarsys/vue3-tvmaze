@@ -28,6 +28,8 @@ npm run format:check  # verify Prettier formatting
 npm run format        # apply Prettier formatting
 ```
 
+Husky runs `lint-staged` on pre-commit, so staged files are auto-linted/formatted before commit.
+
 ## Project layout
 
 | Path               | Purpose                           |
