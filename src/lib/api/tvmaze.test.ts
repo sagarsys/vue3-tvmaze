@@ -41,7 +41,7 @@ describe('tvmaze api module', () => {
       status: 500,
     } as Response);
 
-    expect(fetchShowsPage(1)).rejects.toThrow(
+    await expect(fetchShowsPage(1)).rejects.toThrow(
       'TVMaze request failed with status 500 for /shows?page=1'
     );
   });
