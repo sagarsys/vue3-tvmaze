@@ -30,10 +30,10 @@ export interface TvMazeShowDetail extends TvMazeShowSummary {
   url: string | null;
   network: {
     name: string | null;
-  };
+  } | null;
   webChannel: {
     name: string | null;
-  };
+  } | null;
 }
 
 export interface TvMazeCastMember {
@@ -64,4 +64,9 @@ export interface TvMazeEpisode {
 export interface TvMazeSearchResult {
   score: number;
   show: TvMazeShowSummary;
+}
+
+export interface EpisodeSeasonGroup {
+  season: number;
+  episodes: TvMazeEpisode[];
 }

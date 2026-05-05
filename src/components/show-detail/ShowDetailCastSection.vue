@@ -14,7 +14,7 @@ defineProps<Props>();
 
 <template>
   <section class="space-y-2">
-    <h2 class="text-xl font-semibold text-foreground">Cast</h2>
+    <h2 class="text-2xl font-semibold text-foreground md:text-3xl">Cast</h2>
     <p v-if="isPending" class="text-sm">Loading cast...</p>
     <p v-else-if="isError" class="text-sm text-red-500">{{ errorMessage }}</p>
     <ul

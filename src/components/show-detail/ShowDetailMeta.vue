@@ -60,7 +60,7 @@ const summaryText = computed(() => stripHtmlToPlainText(summary ?? null));
       </div>
       <div v-if="network || webChannel" class="flex items-center gap-1">
         <TvMinimalIcon class="h-4 w-4 text-primary" />
-        <span>{{ network.name || webChannel.name }}</span>
+        <span>{{ network?.name || webChannel?.name }}</span>
       </div>
       <div v-if="language" class="flex items-center gap-1">
         <GlobeIcon class="h-4 w-4 text-primary" />

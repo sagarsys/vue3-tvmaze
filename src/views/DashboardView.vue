@@ -39,7 +39,7 @@ const errorMessage = useQueryErrorMessage(
 </script>
 
 <template>
-  <section>
+  <section class="mt-6 mb-20">
     <p v-if="showsQuery.isPending.value">Loading shows...</p>
     <p v-else-if="showsQuery.isError.value" class="text-red-500">
       Failed to load shows: {{ errorMessage }}

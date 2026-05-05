@@ -10,12 +10,26 @@ describe('ShowDetailEpisodesSection', () => {
         isPending: false,
         isError: false,
         errorMessage: '',
-        episodes: [{ id: 1, name: 'Pilot', season: 1, number: 1, airdate: null }],
+        episodes: [
+          {
+            id: 1,
+            name: 'Pilot',
+            season: 1,
+            number: 1,
+            airdate: '2008-01-20',
+            runtime: 60,
+            image: null,
+            summary: '<p>Episode summary text</p>',
+            rating: { average: 8.2 },
+          },
+        ],
       },
     });
 
     expect(wrapper.text()).toContain('Episodes');
-    expect(wrapper.text()).toContain('S1E1 — Pilot');
+    expect(wrapper.text()).toContain('Season 1');
+    expect(wrapper.text()).toContain('E1: Pilot');
+    expect(wrapper.find('img').exists()).toBe(true);
   });
 
   it('renders error state', () => {

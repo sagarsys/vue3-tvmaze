@@ -7,8 +7,7 @@ import ShowDetailBackNav from '@/components/show-detail/ShowDetailBackNav.vue';
 import ShowDetailInvalidNotice from '@/components/show-detail/ShowDetailInvalidNotice.vue';
 import ShowDetailMeta from '@/components/show-detail/ShowDetailMeta.vue';
 import ShowDetailPoster from '@/components/show-detail/ShowDetailPoster.vue';
-import ShowDetailCastSection from '@/components/show-detail/ShowDetailCastSection.vue';
-import ShowDetailEpisodesList from '@/components/show-detail/ShowDetailEpisodesList.vue';
+import ShowDetailEpisodesCastTabs from '@/components/show-detail/ShowDetailEpisodesCastTabs.vue';
 
 interface Props {
   id: string;
@@ -62,7 +61,6 @@ const episodesErrorMessage = useQueryErrorMessage(
 
 <template>
   <article class="space-y-6">
-    <ShowDetailBackNav />
     <ShowDetailInvalidNotice v-if="!isValidShowId" />
     <template v-else>
       <p v-if="showQuery.isPending.value">Loading show...</p>
@@ -71,29 +69,43 @@ const episodesErrorMessage = useQueryErrorMessage(
       </p>
 
       <template v-else-if="show">
-        <div class="mt-5 flex flex-col gap-8 md:flex-row">
-          <ShowDetailPoster
-            v-if="show.image?.medium"
-            :image-url="show.image.medium"
-            :show-name="show.name"
-          />
-          <ShowDetailMeta :show="show" />
-        </div>
-        <ShowDetailCastSection
-          :cast="cast"
-          :is-pending="castQuery.isPending.value"
-          :is-error="castQuery.isError.value"
-          :error-message="castErrorMessage"
-        />
-        <ShowDetailEpisodesList
+        <section class="relative -mx-4 sm:-mx-6 lg:-mx-8">
+          <div class="absolute inset-0 h-105 overflow-hidden md:h-130" aria-hidden="true">
+            <img
+              v-if="show.image?.medium"
+              :src="show.image.medium"
+              alt=""
+              class="h-full w-full object-cover object-top opacity-30 blur-xl"
+            />
+            <div
+              class="absolute inset-0 bg-linear-to-b from-background/50 via-background/85 to-background"
+            />
+          </div>
+          <div class="relative px-4 pt-4 sm:px-6 lg:px-8">
+            <ShowDetailBackNav />
+
+            <div class="mt-5 flex flex-col gap-8 md:flex-row">
+              <ShowDetailPoster
+                v-if="show.image?.medium"
+                :image-url="show.image.medium"
+                :show-name="show.name"
+              />
+              <ShowDetailMeta :show="show" />
+            </div>
+          </div>
+        </section>
+
+        <ShowDetailEpisodesCastTabs
           :episodes="episodes"
-          :is-pending="episodesQuery.isPending.value"
-          :is-error="episodesQuery.isError.value"
-          :error-message="episodesErrorMessage"
+          :cast="cast"
+          :episodes-pending="episodesQuery.isPending.value"
+          :episodes-error="episodesQuery.isError.value"
+          :episodes-error-message="episodesErrorMessage"
+          :cast-pending="castQuery.isPending.value"
+          :cast-error="castQuery.isError.value"
+          :cast-error-message="castErrorMessage"
         />
       </template>
     </template>
   </article>
 </template>
-
-<style scoped></style>
