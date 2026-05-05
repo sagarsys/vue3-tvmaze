@@ -7,6 +7,7 @@ interface Props {
 }
 
 const { show } = defineProps<Props>();
+const { image, name, rating } = show;
 </script>
 
 <template>
@@ -15,16 +16,16 @@ const { show } = defineProps<Props>();
   >
     <div class="aspect-2/3 overflow-hidden rounded-md border border-(--border) bg-black/20 w-48">
       <img
-        :src="show.image?.medium ?? defaultPoster"
-        :alt="`Poster for ${show.name}`"
+        :src="image?.medium ?? defaultPoster"
+        :alt="`Poster for ${name}`"
         class="w-full h-full object-cover"
         loading="lazy"
       />>
     </div>
-    <p class="font-semibold text-(--text-h)">{{ show.name }}</p>
+    <p class="font-semibold text-(--text-h)">{{ name }}</p>
     <p class="text-sm">
       Rating:
-      <span class="font-medium text-(--text-h)">{{ show.rating.average }}</span>
+      <span class="font-medium text-(--text-h)">{{ rating.average }}</span>
     </p>
   </div>
 </template>

@@ -5,9 +5,8 @@ interface Props {
   show: TvMazeShowDetail;
 }
 
-const {
-  show: { name, status, rating, genres, premiered, language },
-} = defineProps<Props>();
+const { show } = defineProps<Props>();
+const { name, status, rating, genres, premiered, language } = show;
 </script>
 
 <template>
