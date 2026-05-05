@@ -6,7 +6,7 @@ const navLinkClass =
 </script>
 
 <template>
-  <div class="mx-auto max-w-1/2 px-5 py-6 pb-12">
+  <div class="mx-auto max-w-full px-5 py-6 pb-12">
     <header class="mb-6 border-b border-(--border) pb-4">
       <nav class="flex flex-wrap gap-x-5 gap-y-3">
         <RouterLink :class="navLinkClass" to="/">Dashboard</RouterLink>
