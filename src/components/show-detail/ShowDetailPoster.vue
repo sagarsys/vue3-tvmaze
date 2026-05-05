@@ -8,13 +8,13 @@ defineProps<Props>();
 </script>
 
 <template>
-  <div class="max-w-xs">
+  <div class="mx-auto w-60 shrink-0 md:mx-0 md:w-110">
     <img
       :src="imageUrl"
       :alt="`Poster for ${showName}`"
-      class="w-full rounded-md border border-(--border)"
-      width="210"
-      height="295"
+      class="aspect-2/3 w-full rounded-xl border border-border object-cover shadow-2xl"
+      width="300"
+      height="450"
       loading="lazy"
     />
   </div>

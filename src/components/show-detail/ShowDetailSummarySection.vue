@@ -8,7 +8,6 @@ defineProps<Props>();
 
 <template>
   <section class="space-y-2">
-    <h2 class="text-xl font-semibold text-(--text-h)">Summary</h2>
-    <p class="max-w-prose text-(--text)">{{ text }}</p>
+    <p class="max-w-none text-base leading-relaxed text-muted-foreground">{{ text }}</p>
   </section>
 </template>

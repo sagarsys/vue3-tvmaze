@@ -26,6 +26,14 @@ export interface TvMazeShowDetail extends TvMazeShowSummary {
   premiered: string | null;
   ended: string | null;
   status: string | null;
+  runtime: number | null;
+  url: string | null;
+  network: {
+    name: string | null;
+  };
+  webChannel: {
+    name: string | null;
+  };
 }
 
 export interface TvMazeCastMember {

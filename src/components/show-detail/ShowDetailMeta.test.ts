@@ -18,6 +18,14 @@ describe('ShowDetailMeta', () => {
           ended: null,
           image: null,
           summary: null,
+          runtime: null,
+          url: null,
+          network: {
+            name: null,
+          },
+          webChannel: {
+            name: null,
+          },
         },
       },
     });
@@ -27,7 +35,7 @@ describe('ShowDetailMeta', () => {
     expect(wrapper.text()).toContain('8.4');
     expect(wrapper.text()).toContain('Comedy');
     expect(wrapper.text()).toContain('Sci-Fi');
-    expect(wrapper.text()).toContain('Premiered');
+    expect(wrapper.text()).toContain('1999 -');
     expect(wrapper.text()).toContain('English');
   });
 });

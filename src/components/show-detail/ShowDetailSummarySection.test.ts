@@ -9,7 +9,6 @@ describe('ShowDetailSummarySection', () => {
       props: { text: 'A classic space parody.' },
     });
 
-    expect(wrapper.text()).toContain('Summary');
     expect(wrapper.text()).toContain('A classic space parody.');
   });
 });

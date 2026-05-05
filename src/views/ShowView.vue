@@ -3,12 +3,10 @@ import { computed } from 'vue';
 import { useQuery } from '@tanstack/vue-query';
 import { fetchShowCast, fetchShowDetail, fetchShowEpisodes } from '@/lib/api/tvmaze.ts';
 import { useQueryErrorMessage } from '@/composables/useQueryErrorMessage.ts';
-import { stripHtmlToPlainText } from '@/lib/helpers/string.ts';
 import ShowDetailBackNav from '@/components/show-detail/ShowDetailBackNav.vue';
 import ShowDetailInvalidNotice from '@/components/show-detail/ShowDetailInvalidNotice.vue';
 import ShowDetailMeta from '@/components/show-detail/ShowDetailMeta.vue';
 import ShowDetailPoster from '@/components/show-detail/ShowDetailPoster.vue';
-import ShowDetailSummarySection from '@/components/show-detail/ShowDetailSummarySection.vue';
 import ShowDetailCastSection from '@/components/show-detail/ShowDetailCastSection.vue';
 import ShowDetailEpisodesList from '@/components/show-detail/ShowDetailEpisodesList.vue';
 
@@ -60,8 +58,6 @@ const episodesErrorMessage = useQueryErrorMessage(
   () => episodesQuery.error.value,
   'Something went wrong while loading the episodes'
 );
-
-const summaryText = computed(() => stripHtmlToPlainText(show.value?.summary ?? null));
 </script>
 
 <template>
@@ -75,13 +71,14 @@ const summaryText = computed(() => stripHtmlToPlainText(show.value?.summary ?? n
       </p>
 
       <template v-else-if="show">
-        <ShowDetailMeta :show="show" />
-        <ShowDetailPoster
-          v-if="show.image?.medium"
-          :image-url="show.image.medium"
-          :show-name="show.name"
-        />
-        <ShowDetailSummarySection v-if="summaryText" :text="summaryText" />
+        <div class="mt-5 flex flex-col gap-8 md:flex-row">
+          <ShowDetailPoster
+            v-if="show.image?.medium"
+            :image-url="show.image.medium"
+            :show-name="show.name"
+          />
+          <ShowDetailMeta :show="show" />
+        </div>
         <ShowDetailCastSection
           :cast="cast"
           :is-pending="castQuery.isPending.value"
