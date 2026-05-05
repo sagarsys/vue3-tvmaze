@@ -8,7 +8,7 @@ Built with **Vue 3**, **Vite**, **TypeScript**
 ## Requirements
 
 - **Node.js:** ≥ 20 (`package.json` → `engines`)
-- **npm:** ships with Node
+- **npm:** package manager (comes with Node.js)
 
 ## Scripts
 
@@ -39,8 +39,31 @@ Husky runs `lint-staged` on pre-commit, so staged files are auto-linted/formatte
 | `src/views/`       | Route-level pages                 |
 | `src/router/`      | Router config                     |
 
-## References
+## Deploy to Vercel
 
-- [Vue 3 script setup](https://vuejs.org/api/sfc-script-setup.html)
-- [Vite](https://vitejs.dev/)
-- [Vue + TypeScript guide](https://vuejs.org/guide/typescript/overview.html)
+This project includes:
+
+- `./vercel.json` rewrite rule for Vue Router history mode.
+- GitHub Actions workflow at `.github/workflows/check-and-deploy.yml`.
+
+### One-time setup
+
+1. In the root directory, link the app with Vercel:
+
+   ```bash
+   vercel link
+   ```
+
+2. In GitHub repo settings, add these Actions secrets:
+   - `VERCEL_TOKEN`
+   - `VERCEL_ORG_ID`
+   - `VERCEL_PROJECT_ID`
+
+### CI/CD behavior
+
+On every push to `master` that changes `./**`, GitHub Actions will:
+
+1. Run `npm ci`
+2. Run `npm run lint`
+3. Run `npm run test`
+4. Deploy to Vercel production only if all checks pass
