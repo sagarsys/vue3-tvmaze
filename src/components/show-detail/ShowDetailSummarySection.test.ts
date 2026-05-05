@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils';
 import { describe, expect, it } from 'vitest';
 
-import ShowDetailSummarySection from '@/components/ShowDetail/ShowDetailSummarySection.vue';
+import ShowDetailSummarySection from '@/components/show-detail/ShowDetailSummarySection.vue';
 
 describe('ShowDetailSummarySection', () => {
   it('renders summary heading and text', () => {

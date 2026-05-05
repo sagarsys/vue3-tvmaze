@@ -4,13 +4,13 @@ import { useQuery } from '@tanstack/vue-query';
 import { fetchShowCast, fetchShowDetail, fetchShowEpisodes } from '@/lib/api/tvmaze.ts';
 import { useQueryErrorMessage } from '@/composables/useQueryErrorMessage.ts';
 import { stripHtmlToPlainText } from '@/lib/helpers/string.ts';
-import ShowDetailBackNav from '@/components/ShowDetail/ShowDetailBackNav.vue';
-import ShowDetailInvalidNotice from '@/components/ShowDetail/ShowDetailInvalidNotice.vue';
-import ShowDetailMeta from '@/components/ShowDetail/ShowDetailMeta.vue';
-import ShowDetailPoster from '@/components/ShowDetail/ShowDetailPoster.vue';
-import ShowDetailSummarySection from '@/components/ShowDetail/ShowDetailSummarySection.vue';
-import ShowDetailCastSection from '@/components/ShowDetail/ShowDetailCastSection.vue';
-import ShowDetailEpisodesList from '@/components/ShowDetail/ShowDetailEpisodesList.vue';
+import ShowDetailBackNav from '@/components/show-detail/ShowDetailBackNav.vue';
+import ShowDetailInvalidNotice from '@/components/show-detail/ShowDetailInvalidNotice.vue';
+import ShowDetailMeta from '@/components/show-detail/ShowDetailMeta.vue';
+import ShowDetailPoster from '@/components/show-detail/ShowDetailPoster.vue';
+import ShowDetailSummarySection from '@/components/show-detail/ShowDetailSummarySection.vue';
+import ShowDetailCastSection from '@/components/show-detail/ShowDetailCastSection.vue';
+import ShowDetailEpisodesList from '@/components/show-detail/ShowDetailEpisodesList.vue';
 
 interface Props {
   id: string;

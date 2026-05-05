@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils';
 import { describe, expect, it } from 'vitest';
 
-import ShowDetailPoster from '@/components/ShowDetail/ShowDetailPoster.vue';
+import ShowDetailPoster from '@/components/show-detail/ShowDetailPoster.vue';
 
 describe('ShowDetailPoster', () => {
   it('renders poster image with src and alt', () => {

@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { createMemoryHistory, createRouter } from 'vue-router';
 import { mount } from '@vue/test-utils';
-import ShowDetailBackNav from '@/components/ShowDetail/ShowDetailBackNav.vue';
+import ShowDetailBackNav from '@/components/show-detail/ShowDetailBackNav.vue';
 
 describe('ShowDetailBackNav', () => {
   it('renders a link to the dashboard', async () => {

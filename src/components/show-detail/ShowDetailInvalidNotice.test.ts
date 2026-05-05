@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils';
 import { describe, expect, it } from 'vitest';
 
-import ShowDetailInvalidNotice from '@/components/ShowDetail/ShowDetailInvalidNotice.vue';
+import ShowDetailInvalidNotice from '@/components/show-detail/ShowDetailInvalidNotice.vue';
 
 describe('ShowDetailInvalidNotice', () => {
   it('renders invalid id message', () => {

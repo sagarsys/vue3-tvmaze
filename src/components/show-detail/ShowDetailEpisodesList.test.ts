@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils';
 import { describe, expect, it } from 'vitest';
 
-import ShowDetailEpisodesSection from '@/components/ShowDetail/ShowDetailEpisodesList.vue';
+import ShowDetailEpisodesSection from '@/components/show-detail/ShowDetailEpisodesList.vue';
 
 describe('ShowDetailEpisodesSection', () => {
   it('renders episodes list', () => {

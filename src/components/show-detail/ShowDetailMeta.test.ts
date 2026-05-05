@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils';
 import { describe, expect, it } from 'vitest';
 
-import ShowDetailMeta from '@/components/ShowDetail/ShowDetailMeta.vue';
+import ShowDetailMeta from '@/components/show-detail/ShowDetailMeta.vue';
 
 describe('ShowDetailMeta', () => {
   it('renders title, status, rating, and genres', () => {
