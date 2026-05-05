@@ -20,7 +20,8 @@ describe('ShowDetailCastSection', () => {
     });
 
     expect(wrapper.text()).toContain('Cast');
-    expect(wrapper.text()).toContain('Actor One as Character One');
+    expect(wrapper.text()).toContain('Actor One');
+    expect(wrapper.text()).toContain('as Character One');
   });
 
   it('renders loading state', () => {

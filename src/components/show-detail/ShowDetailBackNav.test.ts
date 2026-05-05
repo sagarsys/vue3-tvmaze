@@ -17,6 +17,6 @@ describe('ShowDetailBackNav', () => {
 
     const link = wrapper.findComponent({ name: 'RouterLink' });
     expect(link.props('to')).toEqual('/');
-    expect(wrapper.text()).toContain('Back to dashboard');
+    expect(wrapper.text()).toContain('Back to Dashboard');
   });
 });
