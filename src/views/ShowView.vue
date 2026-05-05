@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { useQuery } from '@tanstack/vue-query';
-import { fetchShowDetail } from '@/lib/api/tvmaze.ts';
+import { fetchShowCast, fetchShowDetail, fetchShowEpisodes } from '@/lib/api/tvmaze.ts';
 import { useQueryErrorMessage } from '@/composables/useQueryErrorMessage.ts';
 import { stripHtmlToPlainText } from '@/lib/helpers/string.ts';
 import ShowDetailBackNav from '@/components/ShowDetail/ShowDetailBackNav.vue';
@@ -9,6 +9,8 @@ import ShowDetailInvalidNotice from '@/components/ShowDetail/ShowDetailInvalidNo
 import ShowDetailMeta from '@/components/ShowDetail/ShowDetailMeta.vue';
 import ShowDetailPoster from '@/components/ShowDetail/ShowDetailPoster.vue';
 import ShowDetailSummarySection from '@/components/ShowDetail/ShowDetailSummarySection.vue';
+import ShowDetailCastSection from '@/components/ShowDetail/ShowDetailCastSection.vue';
+import ShowDetailEpisodesList from '@/components/ShowDetail/ShowDetailEpisodesList.vue';
 
 interface Props {
   id: string;
@@ -28,11 +30,35 @@ const showQuery = useQuery({
   enabled: isValidShowId,
 });
 
+const castQuery = useQuery({
+  queryKey: ['cast', showId],
+  queryFn: () => fetchShowCast(showId.value),
+  enabled: isValidShowId,
+});
+
+const episodesQuery = useQuery({
+  queryKey: ['episodes', showId],
+  queryFn: () => fetchShowEpisodes(showId.value),
+  enabled: isValidShowId,
+});
+
 const show = computed(() => showQuery.data.value);
+const cast = computed(() => castQuery.data.value ?? []);
+const episodes = computed(() => episodesQuery.data.value ?? []);
 
 const errorMessage = useQueryErrorMessage(
   () => showQuery.error.value,
-  'Something went wrong while loading this show.'
+  'Something went wrong while loading this show'
+);
+
+const castErrorMessage = useQueryErrorMessage(
+  () => castQuery.error.value,
+  'Something went wrong while loading the cast'
+);
+
+const episodesErrorMessage = useQueryErrorMessage(
+  () => episodesQuery.error.value,
+  'Something went wrong while loading the episodes'
 );
 
 const summaryText = computed(() => stripHtmlToPlainText(show.value?.summary ?? null));
@@ -56,6 +82,18 @@ const summaryText = computed(() => stripHtmlToPlainText(show.value?.summary ?? n
           :show-name="show.name"
         />
         <ShowDetailSummarySection v-if="summaryText" :text="summaryText" />
+        <ShowDetailCastSection
+          :cast="cast"
+          :is-pending="castQuery.isPending.value"
+          :is-error="castQuery.isError.value"
+          :error-message="castErrorMessage"
+        />
+        <ShowDetailEpisodesList
+          :episodes="episodes"
+          :is-pending="episodesQuery.isPending.value"
+          :is-error="episodesQuery.isError.value"
+          :error-message="episodesErrorMessage"
+        />
       </template>
     </template>
   </article>
