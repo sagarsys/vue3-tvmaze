@@ -71,7 +71,7 @@ const summaryText = computed(() => stripHtmlToPlainText(show.value?.summary ?? n
     <template v-else>
       <p v-if="showQuery.isPending.value">Loading show...</p>
       <p v-else-if="showQuery.isError.value" class="text-red-500">
-        Failed to load show: {{ errorMessage }}
+        Failed to load show: {{ errorMessage }}!
       </p>
 
       <template v-else-if="show">
