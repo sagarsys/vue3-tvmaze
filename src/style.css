@@ -86,7 +86,6 @@
 
 body {
   margin: 0;
-  min-height: 100dvh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -97,7 +96,7 @@ body {
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground text-lg;
     font-family:
       Inter,
       var(--font-sans),
@@ -106,7 +105,6 @@ body {
       'Segoe UI',
       Roboto,
       sans-serif;
-    font-size: 1rem;
     line-height: 1.45;
   }
 
@@ -126,5 +124,14 @@ body {
 @layer components {
   .focus-ring-accent {
     @apply focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring;
+  }
+
+  /* Custom scrollbar for horizontal lists */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
   }
 }

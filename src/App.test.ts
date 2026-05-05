@@ -17,8 +17,8 @@ describe('App smoke test', () => {
       },
     });
 
-    expect(wrapper.text()).toContain('Dashboard');
-    expect(wrapper.text()).toContain('Show details');
-    expect(wrapper.text()).toContain('Search');
+    expect(wrapper.text()).toContain('TVMaze');
+    expect(wrapper.find('header').exists()).toBe(true);
+    expect(wrapper.find('input[type="search"]').exists()).toBe(true);
   });
 });

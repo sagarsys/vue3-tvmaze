@@ -1,21 +1,15 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router';
-
-const navLinkClass =
-  'font-semibold no-underline hover:underline [&.router-link-active]:text-[var(--accent)]';
+import { RouterView } from 'vue-router';
+import AppHeader from '@/components/AppHeader.vue';
 </script>
 
 <template>
-  <div class="mx-auto max-w-full px-5 py-6 pb-12">
-    <header class="mb-6 border-b border-(--border) pb-4">
-      <nav class="flex flex-wrap gap-x-5 gap-y-3">
-        <RouterLink :class="navLinkClass" to="/">Dashboard</RouterLink>
-        <RouterLink :class="navLinkClass" to="/show/1">Show details</RouterLink>
-        <RouterLink :class="navLinkClass" to="/search">Search</RouterLink>
-      </nav>
-    </header>
-    <main class="min-h-48">
-      <RouterView />
-    </main>
+  <div class="flex min-h-dvh flex-col bg-background">
+    <AppHeader />
+    <div class="mx-auto w-full flex-1 px-4 pb-8 sm:px-6 lg:px-16">
+      <main class="min-h-88 py-6">
+        <RouterView />
+      </main>
+    </div>
   </div>
 </template>
