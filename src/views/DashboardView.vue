@@ -5,6 +5,7 @@ import { computed } from 'vue';
 import { capShows, groupShowsByGenre, sortShowsByRatingDesc } from '@/lib/domain/shows-grouping.ts';
 import { DASHBOARD_GENRES } from '@/lib/domain/genres.ts';
 import ShowCard from '@/components/ShowCard.vue';
+import { useQueryErrorMessage } from '@/composables/useQueryErrorMessage.ts';
 
 const DASHBOARD_PAGE_INDEX = 0;
 
@@ -31,11 +32,10 @@ const genreRows = computed(() => {
 // filter out empty rows
 const displayedGenreRows = computed(() => genreRows.value.filter((row) => row.shows.length > 0));
 
-const errorMessage = computed(() => {
-  const error = showsQuery.error.value;
-
-  return error instanceof Error ? error.message : 'Something went wrong while loading shows';
-});
+const errorMessage = useQueryErrorMessage(
+  () => showsQuery.error.value,
+  'Something went wrong while loading shows'
+);
 </script>
 
 <template>

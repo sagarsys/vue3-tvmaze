@@ -1,21 +1,64 @@
 <script setup lang="ts">
 import { computed } from 'vue';
+import { useQuery } from '@tanstack/vue-query';
+import { fetchShowDetail } from '@/lib/api/tvmaze.ts';
+import { useQueryErrorMessage } from '@/composables/useQueryErrorMessage.ts';
+import { stripHtmlToPlainText } from '@/lib/helpers/string.ts';
+import ShowDetailBackNav from '@/components/ShowDetail/ShowDetailBackNav.vue';
+import ShowDetailInvalidNotice from '@/components/ShowDetail/ShowDetailInvalidNotice.vue';
+import ShowDetailMeta from '@/components/ShowDetail/ShowDetailMeta.vue';
+import ShowDetailPoster from '@/components/ShowDetail/ShowDetailPoster.vue';
+import ShowDetailSummarySection from '@/components/ShowDetail/ShowDetailSummarySection.vue';
 
 interface Props {
   id: string;
 }
 
 const props = defineProps<Props>();
-const showIdDisplay = computed(() => props.id);
+
+const showId = computed(() => Number.parseInt(props.id));
+// check that we have a valid id
+const isValidShowId = computed(
+  () => Number.isFinite(showId.value) && Number.isInteger(showId.value) && showId.value > 0
+);
+
+const showQuery = useQuery({
+  queryKey: ['show', showId],
+  queryFn: () => fetchShowDetail(showId.value),
+  enabled: isValidShowId,
+});
+
+const show = computed(() => showQuery.data.value);
+
+const errorMessage = useQueryErrorMessage(
+  () => showQuery.error.value,
+  'Something went wrong while loading this show.'
+);
+
+const summaryText = computed(() => stripHtmlToPlainText(show.value?.summary ?? null));
 </script>
 
 <template>
-  <section>
-    <h1>Show detail</h1>
-    <p>
-      Placeholder — show id: <code>{{ showIdDisplay }}</code>
-    </p>
-  </section>
+  <article class="space-y-6">
+    <ShowDetailBackNav />
+    <ShowDetailInvalidNotice v-if="!isValidShowId" />
+    <template v-else>
+      <p v-if="showQuery.isPending.value">Loading show...</p>
+      <p v-else-if="showQuery.isError.value" class="text-red-500">
+        Failed to load show: {{ errorMessage }}
+      </p>
+
+      <template v-else-if="show">
+        <ShowDetailMeta :show="show" />
+        <ShowDetailPoster
+          v-if="show.image?.medium"
+          :image-url="show.image.medium"
+          :show-name="show.name"
+        />
+        <ShowDetailSummarySection v-if="summaryText" :text="summaryText" />
+      </template>
+    </template>
+  </article>
 </template>
 
 <style scoped></style>
