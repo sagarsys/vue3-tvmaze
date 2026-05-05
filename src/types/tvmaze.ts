@@ -47,6 +47,10 @@ export interface TvMazeEpisode {
   season: number;
   number: number;
   airdate: string | null;
+  runtime: number | null;
+  image: TvMazeImage | null;
+  summary: string | null;
+  rating: TvMazeRating;
 }
 
 export interface TvMazeSearchResult {
