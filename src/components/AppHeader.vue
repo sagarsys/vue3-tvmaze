@@ -13,7 +13,7 @@ import { SearchIcon, TvIcon } from '@lucide/vue';
         class="focus-ring-accent flex shrink-0 items-center gap-2 rounded-md group no-underline"
       >
         <div class="rounded-lg bg-primary/10 p-2 pr-4 transition-colors group-hover:bg-primary/20">
-          <TvIcon class="size-6 text-primary" />
+          <TvIcon class="size-6 text-primary ml-1" />
         </div>
         <span class="hidden text-2xl font-extrabold text-foreground sm:block">
           TV<span class="text-primary">Maze</span>
