@@ -7,7 +7,7 @@ Built with **Vue 3**, **Vite**, **TypeScript**
 
 ## Requirements
 
-- **Node.js:** ≥ 20 (`package.json` → `engines`)
+- **Node.js:** ≥ 24 (`package.json` → `engines`)
 - **npm:** package manager (comes with Node.js)
 
 ## Scripts
