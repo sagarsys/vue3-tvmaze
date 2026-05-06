@@ -115,6 +115,10 @@ body {
   p {
     @apply m-0 leading-relaxed text-muted-foreground;
   }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 rounded-full border border-primary/50 bg-primary/15 px-5 py-3 text-base font-semibold text-primary transition-colors hover:bg-primary/25;
+  }
 }
 
 @layer components {
@@ -129,5 +133,32 @@ body {
   }
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
+  }
+}
+
+/* transitions for route changes */
+.route-fade-enter-active,
+.route-fade-leave-active {
+  transition:
+    opacity 200ms ease,
+    transform 200ms ease;
+}
+
+.route-fade-enter-from,
+.route-fade-leave-to {
+  opacity: 0;
+  transform: translateY(6px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .route-fade-enter-active,
+  .route-fade-leave-active {
+    transition-duration: 120ms;
+    transition-property: opacity;
+  }
+
+  .route-fade-enter-from,
+  .route-fade-leave-to {
+    transform: none;
   }
 }

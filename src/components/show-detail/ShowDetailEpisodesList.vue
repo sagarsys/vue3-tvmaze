@@ -4,6 +4,8 @@ import { groupEpisodesBySeason } from '@/lib/domain/seasons-grouping.ts';
 import { computed } from 'vue';
 import { StarIcon } from '@lucide/vue';
 import defaultPoster from '@/assets/default-poster.png';
+import AppSpinner from '@/components/ui/AppSpinner.vue';
+import AppErrorState from '@/components/ui/AppErrorState.vue';
 
 interface Props {
   episodes: TvMazeEpisode[];
@@ -28,8 +30,13 @@ function formatEpisodeMeta(episode: TvMazeEpisode) {
 <template>
   <section class="space-y-4">
     <h2 class="text-2xl font-semibold text-foreground md:text-3xl">Episodes</h2>
-    <p v-if="isPending" class="text-sm">Loading episodes...</p>
-    <p v-else-if="isError" class="text-sm text-red-500">{{ errorMessage }}</p>
+    <AppSpinner v-if="isPending" size="inline" label="Loading episodes..." />
+    <AppErrorState
+      v-else-if="isError"
+      variant="inline"
+      title="Something went wrong while loading episodes"
+      :message="errorMessage"
+    />
     <div v-else-if="episodes.length > 0" class="grid gap-6 xl:grid-cols-2 2xl:grid-cols-3">
       <section
         v-for="seasonGroup in episodesBySeason"

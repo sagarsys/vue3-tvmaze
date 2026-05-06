@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import type { TvMazeCastMember } from '@/types/tvmaze.ts';
 import defaultPoster from '@/assets/default-poster.png';
+import AppSpinner from '@/components/ui/AppSpinner.vue';
+import AppErrorState from '@/components/ui/AppErrorState.vue';
 
 interface Props {
   cast: TvMazeCastMember[];
@@ -15,8 +17,13 @@ defineProps<Props>();
 <template>
   <section class="space-y-2">
     <h2 class="text-2xl font-semibold text-foreground md:text-3xl">Cast</h2>
-    <p v-if="isPending" class="text-sm">Loading cast...</p>
-    <p v-else-if="isError" class="text-sm text-red-500">{{ errorMessage }}</p>
+    <AppSpinner v-if="isPending" size="inline" label="Loading cast..." />
+    <AppErrorState
+      v-else-if="isError"
+      variant="inline"
+      title="Something went wrong while loading cast"
+      :message="errorMessage"
+    />
     <ul
       v-else-if="cast.length > 0"
       class="grid list-none grid-cols-2 gap-4 p-0 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6"

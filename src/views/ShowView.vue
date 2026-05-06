@@ -8,6 +8,8 @@ import ShowDetailInvalidNotice from '@/components/show-detail/ShowDetailInvalidN
 import ShowDetailMeta from '@/components/show-detail/ShowDetailMeta.vue';
 import ShowDetailPoster from '@/components/show-detail/ShowDetailPoster.vue';
 import ShowDetailEpisodesCastTabs from '@/components/show-detail/ShowDetailEpisodesCastTabs.vue';
+import AppSpinner from '@/components/ui/AppSpinner.vue';
+import AppErrorState from '@/components/ui/AppErrorState.vue';
 
 interface Props {
   id: string;
@@ -63,10 +65,13 @@ const episodesErrorMessage = useQueryErrorMessage(
   <article class="space-y-6">
     <ShowDetailInvalidNotice v-if="!isValidShowId" />
     <template v-else>
-      <p v-if="showQuery.isPending.value">Loading show...</p>
-      <p v-else-if="showQuery.isError.value" class="text-red-500">
-        Failed to load show: {{ errorMessage }}
-      </p>
+      <AppSpinner v-if="showQuery.isPending.value" label="Loading show..." />
+      <AppErrorState
+        v-else-if="showQuery.isError.value"
+        title="Something went wrong while loading this show"
+        :message="errorMessage"
+        variant="page"
+      />
 
       <template v-else-if="show">
         <section class="relative -mx-4 sm:-mx-6 lg:-mx-8">

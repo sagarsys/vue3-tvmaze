@@ -16,7 +16,7 @@ defineProps<Props>();
       target="_blank"
       rel="noopener noreferrer"
       :aria-label="`View ${name} on TVMaze (opens in new tab)`"
-      class="bg-primary px-4 py-2 flex w-50 rounded-md text-base font-medium text-background transition-colors hover:bg-primary/90 focus-ring-accent"
+      class="focus-ring-accent btn-primary"
     >
       <CirclePlay class="mr-2 h-5 w-5" />
       View on TVMaze

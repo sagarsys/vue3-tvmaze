@@ -19,5 +19,10 @@ export const router = createRouter({
       name: 'search',
       component: () => import('@/views/SearchView.vue'),
     },
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'not-found',
+      component: () => import('@/views/NotFoundView.vue'),
+    },
   ],
 });

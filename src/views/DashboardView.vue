@@ -6,6 +6,8 @@ import { capShows, groupShowsByGenre, sortShowsByRatingDesc } from '@/lib/domain
 import { DASHBOARD_GENRES } from '@/lib/domain/genres.ts';
 import { useQueryErrorMessage } from '@/composables/useQueryErrorMessage.ts';
 import GenreRow from '@/components/dashboard/GenreRow.vue';
+import AppErrorState from '@/components/ui/AppErrorState.vue';
+import AppSpinner from '@/components/ui/AppSpinner.vue';
 
 const DASHBOARD_PAGE_INDEX = 0;
 
@@ -40,10 +42,14 @@ const errorMessage = useQueryErrorMessage(
 
 <template>
   <section class="mt-6 mb-20">
-    <p v-if="showsQuery.isPending.value">Loading shows...</p>
-    <p v-else-if="showsQuery.isError.value" class="text-red-500">
-      Failed to load shows: {{ errorMessage }}
-    </p>
+    <AppSpinner v-if="showsQuery.isPending.value" label="Loading shows..." />
+    <AppErrorState
+      v-else-if="showsQuery.isError.value"
+      title="Something went wrong while loading shows"
+      :message="errorMessage"
+      variant="page"
+    />
+
     <div v-else class="space-y-12">
       <GenreRow
         v-for="genreRow in displayedGenreRows"

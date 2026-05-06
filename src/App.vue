@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router';
-import AppHeader from '@/components/AppHeader.vue';
+import AppHeader from '@/components/ui/AppHeader.vue';
 </script>
 
 <template>
@@ -8,7 +8,11 @@ import AppHeader from '@/components/AppHeader.vue';
     <AppHeader />
     <div class="mx-auto w-full flex-1 px-4 pb-8 sm:px-6 lg:px-16">
       <main class="min-h-88">
-        <RouterView />
+        <RouterView v-slot="{ Component, route }">
+          <Transition name="route-fade" mode="out-in">
+            <component :is="Component" :key="route.path" />
+          </Transition>
+        </RouterView>
       </main>
     </div>
   </div>

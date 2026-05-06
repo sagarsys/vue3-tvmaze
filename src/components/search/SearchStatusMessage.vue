@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import AppSpinner from '@/components/ui/AppSpinner.vue';
+import AppErrorState from '@/components/ui/AppErrorState.vue';
+
 interface Props {
   hasQuery: boolean;
   isPending: boolean;
@@ -15,7 +18,14 @@ defineProps<Props>();
   <p v-if="!hasQuery" class="text-sm text-muted-foreground">
     Use the header search bar to find TV shows.
   </p>
-  <p v-else-if="isPending">Searching for “{{ query }}”...</p>
-  <p v-else-if="isError" class="text-red-500">Search failed: {{ errorMessage }}</p>
-  <p v-else-if="!hasResults" class="text-muted-foreground">No shows found for “{{ query }}”.</p>
+  <AppSpinner v-else-if="isPending" size="inline" :label="`Searching for “${query}”…`" />
+  <AppErrorState
+    v-else-if="isError"
+    variant="inline"
+    title="Search failed"
+    :message="errorMessage"
+  />
+  <p v-else-if="!hasResults" class="text-muted-foreground text-2xl">
+    No shows found for “{{ query }}”.
+  </p>
 </template>
