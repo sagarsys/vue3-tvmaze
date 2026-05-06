@@ -14,13 +14,15 @@ const results: TvMazeSearchResult[] = [
       genres: ['Drama'],
       rating: { average: 8.8 },
       image: null,
-      summary: null,
+      summary: '<p>A detective series.</p>',
+      premiered: '2010-07-25',
+      status: 'Ended',
     },
   },
 ];
 
 describe('SearchResultsGrid', () => {
-  it('renders result cards and show links', async () => {
+  it('renders list-style result rows with metadata and show links', async () => {
     const router = createRouter({
       history: createMemoryHistory(),
       routes: [{ path: '/show/:id', name: 'show', component: { template: '<div />' } }],
@@ -35,7 +37,11 @@ describe('SearchResultsGrid', () => {
 
     expect(wrapper.text()).toContain('Results for');
     expect(wrapper.text()).toContain('Sherlock');
-    const link = wrapper.findComponent({ name: 'RouterLink' });
-    expect(link.exists()).toBe(true);
+    expect(wrapper.text()).toContain('8.8');
+    expect(wrapper.text()).toContain('2010');
+    expect(wrapper.text()).toContain('Ended');
+    expect(wrapper.text()).toContain('A detective series.');
+    const link = wrapper.get('a');
+    expect(link.attributes('href')).toContain('/show/7');
   });
 });

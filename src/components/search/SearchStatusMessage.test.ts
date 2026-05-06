@@ -18,7 +18,7 @@ describe('SearchStatusMessage', () => {
       props: { ...baseProps, hasQuery: false, query: '' },
     });
 
-    expect(wrapper.text()).toContain('Enter a show name');
+    expect(wrapper.text()).toContain('Use the header search bar');
   });
 
   it('renders error message', () => {
@@ -38,7 +38,7 @@ describe('SearchStatusMessage', () => {
       props: { ...baseProps, query: 'unknown show' },
     });
 
-    expect(wrapper.text()).toContain('No results found for “unknown show”.');
+    expect(wrapper.text()).toContain('No shows found for “unknown show”.');
   });
 
   it('renders full guidance copy when query is empty', () => {
@@ -46,7 +46,7 @@ describe('SearchStatusMessage', () => {
       props: { ...baseProps, hasQuery: false, query: '' },
     });
 
-    expect(wrapper.text()).toContain('Enter a show name and submit to search TVMaze.');
+    expect(wrapper.text()).toContain('Use the header search bar to find TV shows.');
   });
 
   it('renders nothing when results are available', () => {

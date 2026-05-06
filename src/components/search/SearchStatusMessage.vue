@@ -12,8 +12,10 @@ defineProps<Props>();
 </script>
 
 <template>
-  <p v-if="!hasQuery" class="text-sm">Enter a show name and submit to search TVMaze.</p>
+  <p v-if="!hasQuery" class="text-sm text-muted-foreground">
+    Use the header search bar to find TV shows.
+  </p>
   <p v-else-if="isPending">Searching for “{{ query }}”...</p>
   <p v-else-if="isError" class="text-red-500">Search failed: {{ errorMessage }}</p>
-  <p v-else-if="!hasResults" class="text-sm">No results found for “{{ query }}”.</p>
+  <p v-else-if="!hasResults" class="text-muted-foreground">No shows found for “{{ query }}”.</p>
 </template>

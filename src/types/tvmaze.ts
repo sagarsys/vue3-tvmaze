@@ -19,13 +19,13 @@ export interface TvMazeShowSummary {
   rating: TvMazeRating;
   image: TvMazeImage | null;
   summary: string | null;
+  premiered: string | null;
+  status: string | null;
 }
 
 export interface TvMazeShowDetail extends TvMazeShowSummary {
   language: string | null;
-  premiered: string | null;
   ended: string | null;
-  status: string | null;
   runtime: number | null;
   url: string | null;
   network: {

@@ -96,7 +96,7 @@ body {
   }
 
   body {
-    @apply bg-background text-foreground text-lg;
+    @apply bg-background text-foreground text-base;
     font-family:
       Inter,
       var(--font-sans),
@@ -113,11 +113,7 @@ body {
   }
 
   p {
-    @apply m-0 max-w-prose leading-relaxed text-muted-foreground;
-  }
-
-  code {
-    @apply rounded bg-secondary px-1.5 py-0.5 font-mono text-sm text-foreground;
+    @apply m-0 leading-relaxed text-muted-foreground;
   }
 }
 
