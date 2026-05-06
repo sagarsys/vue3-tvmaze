@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { mount } from '@vue/test-utils';
-import ShowCard from '@/components/ShowCard.vue';
+import ShowCard from '@/components/dashboard/ShowCard.vue';
 import defaultPoster from '@/assets/default-poster.png';
 import type { TvMazeShowSummary } from '@/types/tvmaze.ts';
 

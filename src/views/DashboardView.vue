@@ -4,8 +4,8 @@ import { fetchShowsPage } from '@/lib/api/tvmaze.ts';
 import { computed } from 'vue';
 import { capShows, groupShowsByGenre, sortShowsByRatingDesc } from '@/lib/domain/shows-grouping.ts';
 import { DASHBOARD_GENRES } from '@/lib/domain/genres.ts';
-import ShowCard from '@/components/ShowCard.vue';
 import { useQueryErrorMessage } from '@/composables/useQueryErrorMessage.ts';
+import GenreRow from '@/components/dashboard/GenreRow.vue';
 
 const DASHBOARD_PAGE_INDEX = 0;
 
@@ -45,14 +45,12 @@ const errorMessage = useQueryErrorMessage(
       Failed to load shows: {{ errorMessage }}
     </p>
     <div v-else class="space-y-12">
-      <section v-for="row in displayedGenreRows" :key="row.genre" class="space-y-3">
-        <h2 class="text-3xl font-semibold">{{ row.genre }}</h2>
-        <ul class="flex gap-3 scrollbar-hide list-none overflow-x-auto pb-1">
-          <li v-for="show in row.shows" :key="show.id" class="shrink-0 p-1.5">
-            <ShowCard :show="show" />
-          </li>
-        </ul>
-      </section>
+      <GenreRow
+        v-for="genreRow in displayedGenreRows"
+        :key="genreRow.genre"
+        :genre="genreRow.genre"
+        :shows="genreRow.shows"
+      />
     </div>
   </section>
 </template>
