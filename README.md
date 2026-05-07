@@ -1,14 +1,14 @@
-# Vue 3 TVMaze
+# TVMaze
 
 A Vue 3 + TypeScript TV discovery app powered by the [TVMaze API](https://www.tvmaze.com/api).
+
+![TVMaze Screenshot desktop](./public/img/screenshot.png)
 
 The app lets users browse TV shows grouped by genre, open detailed show pages, and search for shows by name. It is intentionally built as a small but production-minded SPA: typed API boundaries, cached server state, lazy-loaded routes, unit tests, linting, formatting, accessibility rules, and CI/CD deployment.
 
 ## Demo
 
 Online: https://vue3-tvmaze.vercel.app/
-
-![TVMaze Screenshot desktop](./public/img/screenshot.png)
 
 ## Features
 
