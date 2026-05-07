@@ -3,6 +3,7 @@ import { RouterLink } from 'vue-router';
 
 import defaultPoster from '@/assets/default-poster.png';
 import type { TvMazeSearchResult } from '@/types/tvmaze';
+import { StarIcon } from '@lucide/vue';
 
 interface Props {
   result: TvMazeSearchResult;
@@ -32,8 +33,9 @@ defineEmits<{ pick: [] }>();
     </div>
     <span
       v-if="result.show.rating.average != null"
-      class="shrink-0 text-xs font-medium text-primary"
+      class="shrink-0 text-xs font-medium flex items-center"
     >
+      <StarIcon class="h-3 w-3 fill-primary text-primary mr-1" />
       {{ result.show.rating.average.toFixed(1) }}
     </span>
   </RouterLink>
