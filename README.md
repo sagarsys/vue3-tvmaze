@@ -209,7 +209,9 @@ On every push to `main`, GitHub Actions will:
 
 Possible next steps:
 
+- Add a featured dashboard section with trending shows or top-rated shows
 - Add Playwright E2E tests for browse, search, and detail flows
 - Add skeleton loading states for smoother perceived performance
 - Add user watchlists or favorites with persisted client state
 - Add stronger empty/error-state design
+- Add a dark mode toggle
