@@ -14,6 +14,8 @@ const mockShow: TvMazeShowSummary = {
     original: 'https://example.com/poster-lg.jpg',
   },
   summary: null,
+  premiered: null,
+  status: null,
 };
 
 describe('ShowCard', () => {

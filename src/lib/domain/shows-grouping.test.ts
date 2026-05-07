@@ -16,6 +16,8 @@ function createShow(
     rating: { average: rating },
     image: null,
     summary: null,
+    premiered: null,
+    status: null,
   };
 }
 
