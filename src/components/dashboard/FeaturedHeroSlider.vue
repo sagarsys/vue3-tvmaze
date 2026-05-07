@@ -19,7 +19,7 @@ const activeShow = computed(() => slides.value[activeIndex.value] ?? null);
 const hasMultiple = computed(() => slides.value.length > 1);
 
 const { restart } = useAutoRotateSlides({
-  intervalMs: 5000,
+  intervalMs: 7000,
   enabled: hasMultiple,
   onTick: () => goTo((activeIndex.value + 1) % slides.value.length),
 });

@@ -26,7 +26,7 @@ const genreBadges = computed(() => show.genres.slice(0, 3));
 </script>
 
 <template>
-  <div class="relative min-h-[min(85dvh,36rem)] w-full md:min-h-[min(88dvh,40rem)] px-12">
+  <div class="relative min-h-[min(85dvh,40rem)] w-full md:min-h-[min(88dvh,60rem)] px-12">
     <img
       :src="backdropSrc"
       :alt="''"
