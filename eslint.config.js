@@ -3,6 +3,7 @@ import globals from 'globals';
 import tseslint from 'typescript-eslint';
 import pluginVue from 'eslint-plugin-vue';
 import vueParser from 'vue-eslint-parser';
+import vueA11y from 'eslint-plugin-vuejs-accessibility';
 
 export default [
   {
@@ -11,6 +12,7 @@ export default [
   js.configs.recommended,
   ...tseslint.configs.recommended,
   ...pluginVue.configs['flat/recommended'],
+  ...vueA11y.configs['flat/recommended'],
   {
     files: ['**/*.{js,ts,vue}'],
     languageOptions: {

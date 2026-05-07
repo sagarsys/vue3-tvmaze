@@ -93,7 +93,7 @@ function handlePick() {
         role="listbox"
         aria-label="Show suggestions"
       >
-        <li v-for="result in suggestions" :key="result.show.id" role="option">
+        <li v-for="result in suggestions" :key="result.show.id" role="option" aria-selected="false">
           <HeaderSearchSuggestion :result="result" @pick="handlePick" />
         </li>
       </ul>
