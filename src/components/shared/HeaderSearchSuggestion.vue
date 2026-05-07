@@ -16,7 +16,7 @@ defineEmits<{ pick: [] }>();
 <template>
   <RouterLink
     :to="{ name: 'show', params: { id: String(result.show.id) } }"
-    class="focus-ring-accent flex items-center gap-3 px-4 py-2 no-underline transition-colors hover:bg-secondary"
+    class="focus-ring-accent flex items-center gap-3 px-4 py-2 no-underline transition-colors hover:bg-surface-3"
     @click="$emit('pick')"
   >
     <img

@@ -77,7 +77,7 @@ function handlePick() {
         :aria-expanded="isPanelVisible"
         :aria-controls="isPanelVisible ? 'header-search-listbox' : undefined"
         autocomplete="off"
-        class="focus-ring-accent h-11 min-h-11 w-full rounded-md border border-input bg-secondary py-2 pl-10 pr-3 text-base shadow-xs transition-colors placeholder:text-muted-foreground md:h-12 md:text-lg"
+        class="focus-ring-accent h-11 min-h-11 w-full rounded-md border border-foreground/5 bg-surface-2 py-2 pl-10 pr-3 text-base shadow-xs transition-colors placeholder:text-muted-foreground md:h-12 md:text-lg"
         placeholder="Search TV shows..."
         @focus="handleFocus"
         @keydown.esc="handleEscape"
@@ -86,7 +86,7 @@ function handlePick() {
 
     <div
       v-if="isPanelVisible"
-      class="absolute left-0 right-0 top-full z-50 mt-2 overflow-hidden rounded-lg border border-border bg-card shadow-xl"
+      class="absolute left-0 right-0 top-full z-50 mt-2 overflow-hidden rounded-lg border border-foreground/20 bg-surface-1 shadow-xl"
     >
       <ul
         id="header-search-listbox"

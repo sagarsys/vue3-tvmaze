@@ -66,7 +66,7 @@ const errorMessage = useQueryErrorMessage(
       <section aria-labelledby="browse-genres-heading" class="px-4 pb-8 sm:px-6 lg:px-12 xl:px-16">
         <h2
           id="browse-genres-heading"
-          class="mt-6 text-2xl font-semibold tracking-tight md:mt-0 md:text-3xl"
+          class="mt-6 text-2xl font-semibold tracking-tight md:mt-0 md:mb-10 md:text-3xl sr-only"
         >
           Browse by genre
         </h2>

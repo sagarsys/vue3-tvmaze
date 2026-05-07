@@ -26,8 +26,8 @@ function handleScroll(direction: 'left' | 'right') {
 </script>
 
 <template>
-  <section class="group/row space-y-3" :aria-label="`${genre} shows`">
-    <h3 class="text-xl font-semibold">{{ genre }}</h3>
+  <section class="group/row space-y-3 mb-10" :aria-label="`${genre} shows`">
+    <h3 class="text-2xl font-bold md:text-4xl md:my-6">{{ genre }}</h3>
     <div class="relative">
       <button
         type="button"
