@@ -6,8 +6,8 @@ import { capShows, groupShowsByGenre, sortShowsByRatingDesc } from '@/lib/domain
 import { DASHBOARD_GENRES } from '@/lib/domain/genres.ts';
 import { useQueryErrorMessage } from '@/composables/useQueryErrorMessage.ts';
 import GenreRow from '@/components/dashboard/GenreRow.vue';
-import AppErrorState from '@/components/ui/AppErrorState.vue';
-import AppSpinner from '@/components/ui/AppSpinner.vue';
+import AppErrorState from '@/components/shared/AppErrorState.vue';
+import AppSpinner from '@/components/shared/AppSpinner.vue';
 
 const DASHBOARD_PAGE_INDEX = 0;
 

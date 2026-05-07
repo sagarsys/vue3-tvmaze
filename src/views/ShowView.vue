@@ -8,8 +8,8 @@ import ShowDetailInvalidNotice from '@/components/show-detail/ShowDetailInvalidN
 import ShowDetailMeta from '@/components/show-detail/ShowDetailMeta.vue';
 import ShowDetailPoster from '@/components/show-detail/ShowDetailPoster.vue';
 import ShowDetailEpisodesCastTabs from '@/components/show-detail/ShowDetailEpisodesCastTabs.vue';
-import AppSpinner from '@/components/ui/AppSpinner.vue';
-import AppErrorState from '@/components/ui/AppErrorState.vue';
+import AppSpinner from '@/components/shared/AppSpinner.vue';
+import AppErrorState from '@/components/shared/AppErrorState.vue';
 
 interface Props {
   id: string;

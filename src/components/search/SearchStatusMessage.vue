@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import AppSpinner from '@/components/ui/AppSpinner.vue';
-import AppErrorState from '@/components/ui/AppErrorState.vue';
+import AppSpinner from '@/components/shared/AppSpinner.vue';
+import AppErrorState from '@/components/shared/AppErrorState.vue';
 
 interface Props {
   hasQuery: boolean;

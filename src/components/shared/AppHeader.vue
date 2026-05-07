@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router';
-import { SearchIcon, TvIcon } from '@lucide/vue';
+import { TvIcon } from '@lucide/vue';
+import HeaderSearchBar from '@/components/shared/HeaderSearchBar.vue';
 </script>
 
 <template>
@@ -20,17 +21,7 @@ import { SearchIcon, TvIcon } from '@lucide/vue';
         </span>
       </RouterLink>
 
-      <form class="relative w-full max-w-xl min-w-0" @submit.prevent>
-        <SearchIcon
-          class="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground"
-        />
-        <input
-          type="search"
-          placeholder="Search TV shows..."
-          aria-label="Search TV shows"
-          class="focus-ring-accent h-11 min-h-11 w-full rounded-md border border-input bg-secondary py-2 pl-10 pr-3 text-base shadow-xs transition-colors placeholder:text-muted-foreground md:h-12 md:text-lg"
-        />
-      </form>
+      <HeaderSearchBar />
     </div>
   </header>
 </template>

@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils';
 import { describe, expect, it } from 'vitest';
 
-import AppPageSpinner from '@/components/ui/AppSpinner.vue';
+import AppPageSpinner from '@/components/shared/AppSpinner.vue';
 
 describe('AppPageSpinner', () => {
   it('exposes status role and label text', () => {

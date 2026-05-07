@@ -4,8 +4,8 @@ import { groupEpisodesBySeason } from '@/lib/domain/seasons-grouping.ts';
 import { computed } from 'vue';
 import { StarIcon } from '@lucide/vue';
 import defaultPoster from '@/assets/default-poster.png';
-import AppSpinner from '@/components/ui/AppSpinner.vue';
-import AppErrorState from '@/components/ui/AppErrorState.vue';
+import AppSpinner from '@/components/shared/AppSpinner.vue';
+import AppErrorState from '@/components/shared/AppErrorState.vue';
 
 interface Props {
   episodes: TvMazeEpisode[];

@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils';
 import { describe, expect, it } from 'vitest';
 
-import AppQueryErrorState from '@/components/ui/AppErrorState.vue';
+import AppQueryErrorState from '@/components/shared/AppErrorState.vue';
 
 describe('AppErrorState', () => {
   it('renders as an alert with title and message', () => {

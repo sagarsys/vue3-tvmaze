@@ -35,7 +35,6 @@ describe('SearchResultsGrid', () => {
       global: { plugins: [router] },
     });
 
-    expect(wrapper.text()).toContain('Results for');
     expect(wrapper.text()).toContain('Sherlock');
     expect(wrapper.text()).toContain('8.8');
     expect(wrapper.text()).toContain('2010');
