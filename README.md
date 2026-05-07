@@ -6,7 +6,9 @@ The app lets users browse TV shows grouped by genre, open detailed show pages, a
 
 ## Demo
 
-https://vue3-tvmaze.vercel.app/
+Online: https://vue3-tvmaze.vercel.app/
+
+![TVMaze Screenshot desktop](./public/img/screenshot.png)
 
 ## Features
 
