@@ -40,7 +40,7 @@ function handleScroll(direction: 'left' | 'right') {
 
       <ul
         ref="scrollContainer"
-        class="flex list-none gap-3 overflow-x-auto pb-1 scrollbar-hide"
+        class="flex list-none gap-3 overflow-x-auto pb-1 scrollbar-hide md:gap-8"
         :aria-label="`${genre} show carousel`"
       >
         <li v-for="show in shows" :key="show.id" class="shrink-0">
