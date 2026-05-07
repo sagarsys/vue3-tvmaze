@@ -11,6 +11,7 @@ https://vue3-tvmaze.vercel.app/
 ## Features
 
 - Browse TV shows grouped into genre rows
+- Discover featured top-rated shows on the dashboard
 - Sort genre rows by show rating for better discovery
 - Search shows by name
 - View individual show details
@@ -136,6 +137,8 @@ Instead, the dashboard uses the paginated global show index:
 GET /shows?page=n
 ```
 
+The same show index also powers the featured dashboard section. The app selects the highest-rated unique shows from the fetched results, skips unrated entries, and uses show id as a deterministic tie-breaker when ratings are equal.
+
 ### Tradeoff
 
 Fetching more pages gives the dashboard better genre coverage and higher-quality rows, but it also increases network work and first-load time.
@@ -209,7 +212,7 @@ On every push to `main`, GitHub Actions will:
 
 Possible next steps:
 
-- Add a featured dashboard section with trending shows or top-rated shows
+- ~~Add a featured dashboard section with trending shows or top-rated shows~~
 - Add Playwright E2E tests for browse, search, and detail flows
 - Add skeleton loading states for smoother perceived performance
 - Add user watchlists or favorites with persisted client state
