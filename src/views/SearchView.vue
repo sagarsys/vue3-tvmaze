@@ -39,7 +39,7 @@ const errorMessage = useQueryErrorMessage(
 </script>
 
 <template>
-  <section class="space-y-6">
+  <section class="space-y-6 px-4 pb-8 sm:px-6 lg:px-12 xl:px-16">
     <h1 class="text-2xl font-bold text-foreground my-10 md:text-3xl">
       {{ hasRouteQuery ? `Search results for "${routeQuery}"` : 'Search' }}
     </h1>

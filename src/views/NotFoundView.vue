@@ -5,7 +5,7 @@ import { GhostIcon, TvIcon } from '@lucide/vue';
 
 <template>
   <section
-    class="not-found-dither relative overflow-hidden rounded-2xl border border-border bg-card/40 px-6 py-14 sm:py-20"
+    class="not-found-dither relative overflow-hidden rounded-2xl border border-border bg-card/40 px-6 py-50 sm:py-80"
   >
     <div
       class="pointer-events-none absolute -right-8 top-6 h-48 w-48 rounded-full bg-primary/15 blur-3xl motion-reduce:hidden"

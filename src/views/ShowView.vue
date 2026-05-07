@@ -62,7 +62,7 @@ const episodesErrorMessage = useQueryErrorMessage(
 </script>
 
 <template>
-  <article class="space-y-6">
+  <article class="space-y-6 px-4 pb-8 sm:px-6 lg:px-12 xl:px-16">
     <ShowDetailInvalidNotice v-if="!isValidShowId" />
     <template v-else>
       <AppSpinner v-if="showQuery.isPending.value" label="Loading show..." />

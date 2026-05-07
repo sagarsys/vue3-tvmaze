@@ -12,14 +12,12 @@ import AppHeader from '@/components/shared/AppHeader.vue';
       Skip to main content
     </a>
     <AppHeader />
-    <div class="mx-auto w-full flex-1 px-4 pb-8 sm:px-6 lg:px-16">
-      <main id="main-content" class="min-h-88" tabindex="-1">
-        <RouterView v-slot="{ Component, route }">
-          <Transition name="route-fade" mode="out-in">
-            <component :is="Component" :key="route.path" />
-          </Transition>
-        </RouterView>
-      </main>
-    </div>
+    <main id="main-content" class="min-h-88" tabindex="-1">
+      <RouterView v-slot="{ Component, route }">
+        <Transition name="route-fade" mode="out-in">
+          <component :is="Component" :key="route.path" />
+        </Transition>
+      </RouterView>
+    </main>
   </div>
 </template>

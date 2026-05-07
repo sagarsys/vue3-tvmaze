@@ -27,7 +27,7 @@ function handleScroll(direction: 'left' | 'right') {
 
 <template>
   <section class="group/row space-y-3" :aria-label="`${genre} shows`">
-    <h2 class="text-xl font-semibold">{{ genre }}</h2>
+    <h3 class="text-xl font-semibold">{{ genre }}</h3>
     <div class="relative">
       <button
         type="button"
