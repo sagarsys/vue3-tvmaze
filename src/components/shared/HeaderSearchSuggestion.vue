@@ -24,6 +24,10 @@ defineEmits<{ pick: [] }>();
       :alt="result.show.name"
       class="h-14 w-10 shrink-0 rounded bg-muted object-cover"
       loading="lazy"
+      decoding="async"
+      width="40"
+      height="56"
+      sizes="40px"
     />
     <div class="min-w-0 flex-1">
       <p class="truncate text-sm font-medium text-foreground">{{ result.show.name }}</p>

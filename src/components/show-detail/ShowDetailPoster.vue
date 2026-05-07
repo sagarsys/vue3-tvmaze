@@ -16,6 +16,8 @@ defineProps<Props>();
       width="300"
       height="450"
       loading="lazy"
+      decoding="async"
+      sizes="(max-width: 767px) 200px, 300px"
     />
   </div>
 </template>

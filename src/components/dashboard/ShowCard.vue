@@ -29,14 +29,18 @@ const summaryPreview = computed(() => {
       <img
         :src="imageSrc"
         :alt="name"
+        class="h-full w-full object-cover transition-transform duration-300 motion-safe:group-hover:scale-105"
         loading="lazy"
-        class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+        decoding="async"
+        width="180"
+        height="270"
+        sizes="(max-width: 767px) 160px, 180px"
       />
       <div
-        class="absolute inset-0 bg-linear-to-t from-background/90 via-background/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+        class="absolute inset-0 bg-linear-to-t from-background/90 via-background/20 to-transparent opacity-0 transition-opacity duration-300 motion-safe:group-hover:opacity-100"
       />
       <div
-        class="absolute bottom-0 left-0 right-0 translate-y-full p-3 transition-transform duration-300 group-hover:translate-y-0"
+        class="absolute bottom-0 left-0 right-0 translate-y-full p-3 transition-transform duration-300 motion-safe:group-hover:translate-y-0"
       >
         <p
           class="overflow-hidden text-sm text-shadow-black leading-5 text-foreground font-bold [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:5]"

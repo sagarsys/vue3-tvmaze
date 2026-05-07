@@ -72,6 +72,7 @@ function handlePick() {
         role="combobox"
         aria-autocomplete="list"
         aria-label="Search TV shows"
+        aria-haspopup="listbox"
         aria-describedby="header-search-hint"
         :aria-expanded="isPanelVisible"
         :aria-controls="isPanelVisible ? 'header-search-listbox' : undefined"

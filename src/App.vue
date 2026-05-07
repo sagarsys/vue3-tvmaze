@@ -5,9 +5,15 @@ import AppHeader from '@/components/shared/AppHeader.vue';
 
 <template>
   <div class="flex min-h-dvh flex-col bg-background">
+    <a
+      href="#main-content"
+      class="focus-ring-accent sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-60 focus:rounded-md focus:bg-background focus:px-3 focus:py-2"
+    >
+      Skip to main content
+    </a>
     <AppHeader />
     <div class="mx-auto w-full flex-1 px-4 pb-8 sm:px-6 lg:px-16">
-      <main class="min-h-88">
+      <main id="main-content" class="min-h-88" tabindex="-1">
         <RouterView v-slot="{ Component, route }">
           <Transition name="route-fade" mode="out-in">
             <component :is="Component" :key="route.path" />
