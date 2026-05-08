@@ -8,6 +8,7 @@ defineProps<Props>();
 
 <template>
   <span
+    v-if="status"
     class="inline-flex rounded-full border px-2.5 py-1 text-sm font-bold"
     :class="
       status === 'Running'

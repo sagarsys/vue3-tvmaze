@@ -33,7 +33,7 @@ export function groupShowsByGenre(
  * Sorts shows by rating in descending order and excludes shows with no rating
  */
 export function sortShowsByRatingDesc(shows: TvMazeShowSummary[]): TvMazeShowSummary[] {
-  return shows
+  return [...shows]
     .filter((show) => show.rating.average !== null)
     .sort((a, b) => (b.rating.average ?? 0) - (a.rating.average ?? 0));
 }

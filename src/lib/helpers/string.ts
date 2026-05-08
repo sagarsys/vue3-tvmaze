@@ -1,8 +1,12 @@
 /**
- * Removes HTML tags for a plain-text preview.
- * Minimal sanitizer for untrusted rich HTML.
+ * Converts the small HTML snippets returned by TVMaze into plain text previews.
+ * Not intended for rendering sanitized HTML.
  */
 export function stripHtmlToPlainText(html: string | null): string {
   if (!html) return '';
-  return html.replace(/<[^>]*>/g, '').trim();
+
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(html, 'text/html');
+
+  return doc.body.textContent?.trim() ?? '';
 }

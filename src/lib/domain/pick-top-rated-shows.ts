@@ -18,7 +18,7 @@ export function pickTopRatedShows(
 
   const seenIds = new Set<number>();
 
-  return shows
+  return [...shows]
     .filter((show) => {
       const rating = show.rating.average;
       return rating != null && rating >= minRating;

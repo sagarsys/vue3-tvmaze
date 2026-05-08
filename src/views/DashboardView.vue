@@ -71,8 +71,12 @@ const errorMessage = useQueryErrorMessage(
           Browse by genre
         </h2>
         <div class="mt-6 flex flex-col space-y-6">
+          <p v-if="displayedGenreRows.length === 0" class="text-muted-foreground">
+            No shows available right now.
+          </p>
           <GenreRow
             v-for="genreRow in displayedGenreRows"
+            v-else
             :key="genreRow.genre"
             :genre="genreRow.genre"
             :shows="genreRow.shows"

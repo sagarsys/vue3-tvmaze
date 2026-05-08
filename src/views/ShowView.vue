@@ -10,6 +10,7 @@ import ShowDetailPoster from '@/components/show-detail/ShowDetailPoster.vue';
 import ShowDetailEpisodesCastTabs from '@/components/show-detail/ShowDetailEpisodesCastTabs.vue';
 import AppSpinner from '@/components/shared/AppSpinner.vue';
 import AppErrorState from '@/components/shared/AppErrorState.vue';
+import defaultPoster from '@/assets/default-poster.png';
 
 interface Props {
   id: string;
@@ -77,8 +78,7 @@ const episodesErrorMessage = useQueryErrorMessage(
         <section class="relative -mx-4 sm:-mx-6 lg:-mx-8">
           <div class="absolute inset-0 h-105 overflow-hidden md:h-130" aria-hidden="true">
             <img
-              v-if="show.image?.medium"
-              :src="show.image.medium"
+              :src="show.image?.medium || defaultPoster"
               alt=""
               class="h-full w-full object-cover object-top opacity-30 blur-xl"
             />
@@ -91,8 +91,7 @@ const episodesErrorMessage = useQueryErrorMessage(
 
             <div class="mt-5 flex flex-col gap-8 md:flex-row">
               <ShowDetailPoster
-                v-if="show.image?.medium"
-                :image-url="show.image.medium"
+                :image-url="show.image?.medium ?? defaultPoster"
                 :show-name="show.name"
               />
               <ShowDetailMeta :show="show" />
